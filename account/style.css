@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+header {
+    font-weight: bolder;
+    background-color: black;
+    color: beige;
+    height: 75px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    align-items: center;
+    padding-bottom: 120px;
+}
+
+.form > .textInput {
+    width: 400px;
+    height: 30px;
+    font-size: 25px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    border: rgba(0, 0, 0, 0.4) 2px solid;
+    transition: all ease 0.2s;
+    background: white;
+}
+
+.form > .textInput:focus-visible {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form > .buttonInput {
+    margin-top: 10px;
+    background-color: white;
+    border: rgba(0, 0, 0, 0.4) 1px solid;
+    font-size: 25px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all ease 0.2s;
+}
+
+.form > .buttonInput:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.form > .textInput:invalid {
+    border-color: rgba(255, 0, 0, 0.2);
+}
+
+.form > .textInput:valid {
+    border-color: rgba(100, 100, 255, 0.5);
+}
+
+.textInput:valid:after {
+    content: "&#10008;";
+}
+
+.userData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+.userData > h1 {
+    display: block;
+}
+
+.userData > .movies > input[type='button'].select{
+    background-color: white;
+    border-radius: 0;
+    border: 0.3px lightgray solid;
+    color: gray;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    transition: all ease 0.3s;
+}
+
+.userData > .movies > input[type='button']:nth-child(1) {
+    justify-content: space-around;
+}
+
+.userData > .movies > input[type='button']:nth-child(2) {
+    justify-content: space-around;
+}
+
+.userData > .movies > input[type='button'].active {
+    color: white;
+    background-color: gray;
+}
+
+.listMovies {
+    height: calc(100vh - 130px);
+    display: flex;
+    list-style: "";
+    max-width: 800px;
+    margin: 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.listMovies > .listMovie {
+    width: 150px;
+    height: fit-content;
+    margin: 10px;
+}
+
+.listMovies > .listMovie > a > img {
+    box-shadow: black 0.1px 0.1px 2px;
+    width: 100%;
+    transition: all ease 0.3s;
+}
+
+.listMovies > .listMovie > a > img:hover {
+    box-shadow: black 3px 3px 6px;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+}
+
+.movies {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.userData > .movies > button.select {
+    width: 90px;
+    height: 90px;
+    background-color: transparent;
+    border: none;
+}
+
+button.select > img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.6));
+    transition: all ease 0.3s;
+    opacity: 1;
+}
+
+button.select:hover > img {
+    opacity: 0.8;
+}
+
+button.select.active > img {
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.8));
+}
+
+.friendsIcon {
+    display: flex;
+    width: calc(100vw - 70px);
+    height: fit-content;
+    justify-content: flex-end;
+    margin: auto;
+    position: relative;
+    right: 10%;
+}
+
+.showFriends {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.showFriends:hover {
+    opacity: 0.7;
+}
+
+.showFriends:active {
+    opacity: 1;
+}
+
+.true {
+    opacity: 1;
+    transition: opacity ease 0.2s;
+}
+
+.false {
+    opacity: 0;
+    transition: opacity ease 0.2s;
+}
+
+.smalIcon {
+    width: 30px;
+    opacity: 1;
+    transition: all ease 0.3s;
+}
+
+.smalIcon:hover {
+    opacity: 0.7;
+}
+
+.smalIcon:active {
+    opacity: 1;
+}
+
+.line {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: left;
+    font-size: 25px;
+    align-content: center;
+    align-items: center;
+    padding: 5px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.friendsList {
+    position: absolute;
+    top: 40px;
+    background-color: lightgray;
+    padding: 10px;
+    user-select: none;
+    width: max-content;
+}
+
+@media only screen and (max-width: 1000px) {
+    .userData > h1 {
+        font-size: 85px;
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    #app {
+        width: 95%;
+        margin: auto;
+    }
+
+    .userData {
+        max-width: 100%;
+        position: relative;
+        margin-bottom: 100px;
+    }
+
+    .listMovies > .listMovie {
+        width: 150px;
+        height: fit-content;
+        margin: 10px;
+    }
+
+    .listMovies {
+        max-width: 100%;
+        height: unset;
+        margin-bottom: 200px;
+    }
+
+    .nav {
+        position: fixed;
+        z-index: 10000;
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        top: calc(100% - 60px);
+    }
+
+    .icon {
+        padding-top: 5px;
+    }
+
+    .movies {
+        padding-bottom: 20px;
+    }
+}

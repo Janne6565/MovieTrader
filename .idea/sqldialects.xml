@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/api/add/friend.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/add/movieToListNegative.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/add/movieToListPositive.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/check/movieListFriend.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/create/user.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/get/listMovies.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/get/user.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/login/password.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/remove/friend.php" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/api/set/filter.php" dialect="GenericSQL" />
+  </component>
+</project>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../nav/style.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<div id="app">
+    <div class="form loginForm" v-if="!loggedIn">
+        <h1>Login:</h1>
+        <input v-on:keydown="checkLogin()" class="textInput" placeholder="Email" type="text" v-model="dataSendLogin.email" required>
+        <input v-on:keydown="checkLogin()" class="textInput" placeholder="Passwort" type="password" v-model="dataSendLogin.password" required>
+        <input class="buttonInput" type="button" value="Login" v-on:click="login()">
+        <h1>Register</h1>
+        <input class="textInput" name="email" placeholder="Email" type="text" v-model="dataSendRegister.email" required>
+        <input class="textInput" name="name" placeholder="Benutzername" type="text" v-model="dataSendRegister.username" required>
+        <input class="textInput" name="pronouns" placeholder="Pronomen" type="text" v-model="dataSendRegister.pronouns" required>
+        <input class="textInput" name="password" placeholder="Passwort" type="password" v-model="dataSendRegister.password" required>
+        <input class="buttonInput" type="button" value="Register" v-on:click="register()">
+    </div>
+    <div class="userData" v-if="loggedIn">
+        <div class="friendsIcon">
+            <img src="./assets/friends.svg" @click="friendsVis=!friendsVis" alt="Show Friends" class="showFriends">
+        </div>
+        <div v-bind:class="friendsVis + ' friendsList'">
+            <span class="line">
+                <input type="text" v-model="addEmail" placeholder="Email" @submit="addFriend()">
+                <input type="button" value="Hinzufügen" @click="addFriend()">
+            </span>
+            <span class="line" v-for="friend in friends" class="friend">
+                {{ friend.Username }}
+                <img src="./assets/pending.svg" v-if="friend.status==='pending'" alt="" class="smalIcon"  @click="removeFriend(friend.userID2)">
+                <img src="./assets/verified.svg" v-if="friend.status==='verified'" class="smalIcon" alt="" class="smalIcon" @click="removeFriend(friend.userID2)">
+                <img src="./assets/cross.svg" alt="Decline" class="smalIcon" v-if="friend.status==='asking'" @click="removeFriend(friend.userID1)">
+                <img src="./assets/verified.svg" alt="Accept" class="smalIcon" v-if="friend.status==='asking'" @click="acceptFriend(friend.userID1)">
+            </span>
+            <span class="line" v-if="friends.length === 0">
+                Füge neue Freunde hinzu
+            </span>
+        </div>
+        <h1 class="username">{{ dataGet.Username }}</h1>
+        <div class="movies">
+            <button v-bind:class="[page === 0 ? 'active':'', 'select selectOne selectLiked']" v-on:click="page = 0"><img src='./assets/like.svg'></button>
+            <button v-bind:class="[page === 1 ? 'active':'', 'select selectOne selectDisliked']" v-on:click="page = 1"><img src='./assets/dislike.svg'></button>
+        </div>
+        <div class="listMovies" v-if="page === 0">
+            <li v-for="item in listMoviesLiked" class="listMovie">
+                <a v-bind:href="'https://www.themoviedb.org/'+item.media_type+'/'+item.id"><img v-bind:src="item.poster_path" v-bind:alt="item.title"></a>
+            </li>
+        </div>
+        <div class="listMovies" v-if="page === 1">
+            <li v-for="item in listMoviesDisliked" class="listMovie">
+                <a v-bind:href="'https://www.themoviedb.org/'+item.media_type+'/'+item.id"><img v-bind:src="item.poster_path" v-bind:alt="item.title"></a>
+            </li>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <a href="https://www.projektejwkk.de/movieTrader"><img width="50px" height="50px" src="assets/home.svg" class="icon">
+        <span class="title">Home</span></a>
+
+    <a href="https://www.projektejwkk.de/movieTrader/filter"><img width="50px" height="50px" src="assets/filter.svg" class="icon">
+        <span class="title">Filter</span></a>
+
+    <a href="https://www.projektejwkk.de/movieTrader/account"><img width="50px" height="50px" src="assets/account.svg" class="icon">
+        <span class="title">Profile</span></a>
+
+    <a href="https://www.projektejwkk.de/movieTrader/rechtliches"><img width="50px" height="50px" src="assets/search.svg" class="icon">
+        <span class="title">Refs</span></a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="./app.js"></script>
+</body>
+</html>

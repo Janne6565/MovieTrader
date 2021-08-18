@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie</title>
+    <link rel="preload" as="style" href="./nav/style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <meta name="description" content="A Movie Selector WebApp Coded by Janne Keipert">
+</head>
+<body>
+<section class="content" id="app">
+    <div class="finalContent" v-for="item in movies" v-if="loggedIn">
+        <div class="topThing">
+            <div class="top">
+                <div v-bind:class="pageOn === 0 ? 'active ball' : 'ball'" @click="pageOn = 0"></div>
+                <div v-bind:class="pageOn === 1 ? 'active ball' : 'ball'" @click="pageOn = 1"></div>
+            </div>
+            <div class="top2"></div>
+            <div class="top3">
+                <button v-on:click="likeMovie(movies[0]['id'], media_type)" class="like"><img width="50px" height="50px" src="./assets/like.svg" alt="" class="imgBtn btnLike"></button>
+                <button v-on:click="dislikeMovie(movies[0]['id'], media_type)" class="dislike"><img width="50px" height="50px" src="./assets/dislike.svg" class="imgBtn btnDislike" alt=""></button>
+            </div>
+        </div>
+        <div class="rect" id="rectImg" v-bind:style="'background-image: url(\'' + [pageOn === 0 ? item.poster_path : item.backdrop_path] + '\')'"></div>
+        <div class="informations" id="informations">
+            <div class="center">
+                <div class="line"> </div>
+            </div>
+            <div class="imagesPreload" style="display: none">
+                <img v-bind:src="item.poster_path" alt="">
+                <img v-bind:src="item.backdrop_path" alt="">
+            </div>
+            <div class="description" v-on:load="loaded()">
+                <b>{{item.title}}</b><br>
+                {{item.overview}}<br>
+                <div class="providers">
+                    <h5 v-for="provider in item.publisher" class="provider">{{provider.name}} (<span v-for="type in provider.type">{{type}}</span>)</h5>
+                </div>
+            </div>
+            <div class="rectSmall"></div>
+        </div>
+       <iframe v-on:load="setDrag(); setSwipeSites()" src="" style="display: none;"></iframe>
+        <div class="buttons" v-if="loggedIn">
+
+        </div>
+    </div>
+    <div class="login" v-else>
+        <h1>Please <a href="./account"><b>Login</b></a> to continue</h1>
+    </div>
+</section>
+<div class="nav">
+    <a href="https://www.projektejwkk.de/movieTrader"><img width="50px" height="50px" src="assets/home.svg" class="icon">
+        <span class="title">Home</span></a>
+
+    <a href="https://www.projektejwkk.de/movieTrader/filter"><img width="50px" height="50px" src="assets/filter.svg" class="icon">
+        <span class="title">Filter</span></a>
+
+    <a href="https://www.projektejwkk.de/movieTrader/account"><img width="50px" height="50px" src="assets/account.svg" class="icon">
+        <span class="title">Profile</span></a>
+
+    <a href="https://www.projektejwkk.de/movieTrader/rechtliches"><img width="50px" height="50px" src="assets/search.svg" class="icon">
+        <span class="title">Refs</span></a>
+</div>
+<script src="./vue.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

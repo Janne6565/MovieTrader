@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
+.nav {
+    position: fixed;
+    z-index: 100000;
+    top: 0;
+}
+
+.images0 > .movieImg, .images1 > .movieImg {
+    position: absolute;
+    transition: opacity ease 0.3s;
+}
+
+.images0 > .firstImage {
+    opacity: 1;
+
+}
+
+.images1 > .firstImage {
+    opacity: 0;
+}
+
+.images0 > .secondImage {
+    opacity: 0;
+
+}
+
+.images1 > .secondImage {
+    opacity: 1;
+}
+
+.login {
+    width: calc(100% - 70px);
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: calc(100% - 70px);
+    margin-left: 70px;
+}
+
+.finalContent {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+}
+
+.rect {
+    width: 600px;
+    height: 900px;
+    box-shadow: 3px 4px 10px rgb(0 0 0);
+    border-radius: 25px;
+    background: #C4C4C4 no-repeat;
+    transition: background-image 0.3s ease;
+    background-size: auto 100%;
+}
+
+.informations {
+    width: calc(100% - 700px);
+    max-width: 700px;
+    height: 900px;
+    margin: auto 0;
+    background-color: darkgray;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: justify;
+    padding: 20px;
+}
+
+.description > b {
+    font-size: 25px;
+}
+
+.description {
+    display: flex;
+    max-width: 700px;
+    height: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.providers {
+    max-height: 800px;
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.providers > h5 {
+    margin: 5px 0;
+}
+
+.providers > h5:after {
+    content: ", ";
+}
+
+.topThing {
+    display: flex;
+    position: absolute;
+    width: calc(100% - 70px);
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.top {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 900px;
+    align-items: flex-end;
+}
+
+.top2 {
+    width: calc(100% - 700px);
+    max-width: 700px;
+    height: 900px;
+    margin: auto 0;
+    padding: 20px;
+    pointer-events: none;
+}
+
+.top > .ball {
+    margin: 5px;
+    border-radius: 7.5px;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: background-color ease 0.3s;
+}
+
+.top > .active {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.top3 {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    pointer-events: all;
+}
+
+.buttons {
+    width: 200px;
+}
+
+.top3 > button {
+    border: none;
+    box-sizing: border-box;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    box-shadow: 0 0 10px black;
+    overflow: hidden;
+    transition: all ease 0.3s;
+}
+
+.top3 > button > img{
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.btnDislike {
+    transform: scale(1.2);
+}
+
+.top3 > button:active {
+    box-shadow: 0 0 20px black;
+}
+
+.top3 > button:hover {
+    box-shadow: 0 0 15px black;
+}
+
+@media only screen and (max-width: 1000px) {
+    body {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .top {
+        padding-bottom: 20px;
+    }
+
+    .top2 {
+        display: none;
+    }
+
+    .top3 {
+        display: unset;
+        flex-wrap: nowrap;
+        flex-direction: row;
+    }
+
+    .nav {
+        top: calc(100% - 60px);
+    }
+
+    .top3 {
+        position: absolute;
+        bottom: -90px;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+        height: calc(100vh - 60px);
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .finalContent {
+        position: relative;
+        width: calc(100% - 40px);
+        margin: 40px 20px 80px;
+        height: 0;
+        padding-top: 133%;
+        left: 0;
+        display: flex;
+        align-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .finalContent > .informations {
+        position: absolute;
+        width: 100%;
+        height: fit-content;
+        max-height: 20px;
+        overflow: hidden;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 25px;
+        transition: all ease .3s;
+        margin: 0;
+        display: unset;
+        padding: 0;
+    }
+
+    .finalContent > .informations.opened {
+        height: fit-content;
+        top: unset;
+        transform: scaleY(1);
+        overflow: scroll;
+        max-height: 360px;
+    }
+
+    .finalContent > .informations > .center {
+        justify-content: center;
+        display: flex;
+    }
+
+    .finalContent > .informations > .center > .line {
+        position: relative;
+        margin: 7.5px;
+        width: 138px;
+        height: 5px;
+        background: rgba(196, 196, 196, 0.7);
+        border-radius: 2.5px;
+    }
+
+    .finalContent > .informations > .description {
+        position: relative;
+        width: calc(100% - 30px);
+        padding: 5px 15px 15px;
+        height: fit-content;
+
+        font-family: Segoe UI Emoji, serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 27px;
+        z-index: 1;
+
+        color: #FFFFFF;
+    }
+
+    .finalContent > .informations > .description > b {
+        font-size: 25px;
+    }
+
+    .finalContent > .informations > .rectSmall {
+        position: absolute;
+        width: 100%;
+        height: 518px;
+        top: calc(100% - 602px);
+    }
+
+    .finalContent > .rect {
+        position: absolute;
+        width: 100%;
+        height: 0;
+        padding-top: 150%;
+
+        box-shadow: 3px 4px 10px rgba(0, 0, 0, 1);
+        border-radius: 25px;
+        background: #C4C4C4 no-repeat;
+        transition: background-image 0.3s ease;
+        background-size: auto 100%;
+    }
+
+    .icon {
+        padding-top: 5px;
+    }
+
+    .ball {
+        width: 5%;
+        height: 5px;
+        border-radius: 2.5px;
+        background-color: rgba(255, 255, 255, 0.5);
+        background-blend-mode: difference;
+        z-index: 100;
+        margin: 1%;
+        transition: background-color ease 0.3s;
+    }
+
+    .ball.active {
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .top {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        width: 100%;
+        height: 105%;
+    }
+
+    .top3 {
+        display: flex;
+        width: 100%;
+        align-items: flex-end;
+        justify-content: space-evenly;
+        margin-bottom: 20px;
+    }
+
+    .top3 > button {
+        background-color: transparent;
+        border: none;
+        box-sizing: border-box;
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        box-shadow: 0 0 10px black;
+        overflow: hidden;
+        transition: all ease 0.3s;
+    }
+
+    .top3 > button > img{
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .btnDislike {
+        transform: scale(1.2);
+    }
+
+    .top3 > button:active {
+        box-shadow: 0 0 20px black;
+    }
+
+    .movieTrader {
+        position: absolute;
+    }
+
+    .login {
+        width: 100%;
+    }
+}
